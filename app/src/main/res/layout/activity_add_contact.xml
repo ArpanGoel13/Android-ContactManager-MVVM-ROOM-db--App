@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <data>
+        <variable
+            name="contact"
+            type="com.example.contactsmanagerapp.Contacts" />
+        <variable
+            name="clickHandler"
+            type="com.example.contactsmanagerapp.AddActivityClickHandler" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main"
+        android:background="@drawable/addcontactwall"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".AddContactActivity">
+
+        <EditText
+            android:id="@+id/editText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="191dp"
+            android:hint="Enter Name"
+            android:text="@={contact.name}"
+            android:textColorHint="@color/black"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/editText2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:hint="Enter Email"
+            android:text="@={contact.email}"
+            android:textColorHint="@color/black"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editText" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="70dp"
+            android:onClick="@{clickHandler::onAddClicked}"
+            android:text="Add Contact"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editText2" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
